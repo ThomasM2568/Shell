@@ -1,2 +1,2 @@
-# Bash
-All my work in Bash Script
+# Shell
+All my work in Shell Script

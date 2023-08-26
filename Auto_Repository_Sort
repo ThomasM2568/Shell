@@ -1,0 +1,24 @@
+#!/bin/bash
+
+if [ $# -ne 1 ]; then
+    echo "Please give an repository name to the script"
+    exit 1
+fi
+
+if [ ! -d "$1" ]; then
+    echo "No repository found : $1"
+    exit 1
+fi
+
+cd "$1"
+
+for file in *; do
+    if [ -f "$file" ]; then
+        echo "$file"
+        extension="${file##*.}"
+        if [ ! -d "$extension" ]; then
+            mkdir "$extension"
+        fi
+        mv "$file" "$extension/"
+    fi
+done
